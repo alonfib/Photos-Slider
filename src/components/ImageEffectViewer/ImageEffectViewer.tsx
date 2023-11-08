@@ -14,13 +14,30 @@ const ImageEffectViewer = ({ originalImageUrl, editedImageUrl }: ImageEffectView
   return (
     <div className="image-effect-view">
       <div className="images-container">
-        <img src={originalImageUrl} alt="First Image" className="original-image" />
-        <img src={editedImageUrl} alt="Second Image" className="edited-image" style={{ opacity }} />
+        <img src={originalImageUrl} alt="Original Image" className="original-image" />
+        <img src={editedImageUrl} alt="Edited Image" className="edited-image" style={{ opacity }} />
       </div>
       <div className="slider-container">
-        <div className="text">Original Photo</div>
-        <Slider className="image-effect-view-slider" onChange={(percent) => setOpacity((percent as number) * 0.01)} />
-        <div className="text">Edited Photo</div>
+        <h4 className="text">Original Photo</h4>
+        <Slider
+          styles={{
+            track: {
+              backgroundColor: "#8b8787",
+            },
+            rail: {
+              backgroundColor: "#dcd8d8",
+              borderRadius: "8px",
+            },
+            handle: {
+              borderColor: "#333",
+              lightingColor: "#333",
+              color: "#333",
+            },
+          }}
+          className="image-effect-view-slider"
+          onChange={(percent) => setOpacity((percent as number) * 0.01)}
+        />
+        <h4 className="text">Edited Photo</h4>
       </div>
     </div>
   );
